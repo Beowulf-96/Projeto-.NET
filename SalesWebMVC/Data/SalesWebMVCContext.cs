@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalesWebMVC.Models;
+using SalesWebMVC.Models.Enums;
 
 namespace SalesWebMVC.Data
 {
@@ -12,6 +13,8 @@ namespace SalesWebMVC.Data
 
         // DbSet da tabela Department
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Seller> Seller { get; set; }
+        public DbSet<SalesRecord> SalesRecord { get; set; }
 
         // Configuração adicional (opcional)
         protected override void OnModelCreating(ModelBuilder modelBuilder)
