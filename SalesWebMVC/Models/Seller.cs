@@ -1,4 +1,5 @@
 ﻿using SalesWebMVC.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace SalesWebMVC.Models
@@ -6,9 +7,18 @@ namespace SalesWebMVC.Models
     public class Seller
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Campo obrigatório.")]
+        [EmailAddress(ErrorMessage = "Entre com um email válido!")]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório.")]
+        [StringLength(90, MinimumLength = 3, ErrorMessage = "O email deve ter entre 3 e 90 caracteres.")]
         public string Email { get; set; }
+
+        [Display(Name= "Birth Date")]
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
